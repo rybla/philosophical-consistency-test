@@ -26,7 +26,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className='App'>
         <div className='header'>
@@ -195,7 +194,6 @@ export default class App extends Component {
       <div>
         Upload answers:
         <input type="file" className='answers-uploader' onChange={event => {
-          console.log(event);
           let reader = new FileReader();
           reader.onload = event => {
             let answers = JSON.parse(event.target.result);
@@ -212,7 +210,6 @@ export default class App extends Component {
   }
 
   renderAnswers() {
-    console.log(this.state.answers);
     let rows = [];
     for (let [answer_key, answer_value] of Object.entries(this.state.answers)) {
       rows.push(
@@ -296,7 +293,9 @@ export default class App extends Component {
 
   renderContradictions() {
     let rows = [];
+    console.log(contradictions);
     for (let contradiction of contradictions) {
+      console.log(contradiction);
       let isContradictory = true;
       for (let answer of contradiction.answers) {
         isContradictory = isContradictory && this.state.answers[answer.key] === answer.value;
@@ -398,11 +397,11 @@ let contradictions = [
     description: "This is the definition of contradiction. If you don't agree with this, then this whole test will probably not be very useful for you..."
   },
   {
-    answer: [{ key: "util1", value: true }, { key: "util2", value: false }],
+    answers: [{ key: "util1", value: true }, { key: "util2", value: false }],
     description: "This is the classic question for utilitarians. You accepted the utilitarian view that the morally-relevant consequences determine the morality of an action, but refused to agree that this general principle applies in an unsavory case."
   },
   {
-    answer: [{ key: "utilAction1", value: true }, { key: "utilAction2", value: true }, { key: "utilAction3", value: false }],
+    answers: [{ key: "utilAction1", value: true }, { key: "utilAction2", value: true }, { key: "utilAction3", value: false }],
     description: "You disagreed that you in particular should take an action that you agreed that people like you should take. But, you are in fact a person like you."
   }
 ]
