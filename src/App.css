@@ -1,38 +1,143 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 800px;
+
+  font-size: 18pt;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header {
+  width: 100vw;
   color: white;
+  background-color: black;
 }
 
-.App-link {
-  color: #61dafb;
+.content {
+  padding: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-title {
+  padding: 20px;
+  font-size: 32px;
 }
+
+.status {
+
+}
+
+.status-bar {
+  margin-top: 5px;
+}
+
+.question-status-item {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 0 4px black inset;
+  margin-right: 2px;
+  border-radius: 10px;
+}
+
+.question-status-item.active {
+  background-color: rgb(0, 167, 223);
+}
+.question-status-item.done {
+  background-color: black;
+}
+.question-status-item.todo {
+
+}
+
+.instructions {
+  margin-top: 10px;
+}
+
+.question {
+  margin-top: 10px;
+}
+
+.question-description {
+  margin-top: 10px;
+}
+
+.question-answers {
+}
+
+.question-answer {
+  box-shadow: 0 0 0 2px black inset;
+  width: 70px;
+  padding: 5px 10px;
+  margin-top: 10px;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.answers {
+  margin-top: 20px;
+}
+
+.answer {
+  
+}
+
+.title {
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  background-color: rgb(192, 192, 192);
+}
+
+.answers-table {
+  margin-top: 10px;
+}
+
+.contradictions {
+  margin-top: 20px;
+}
+
+.contradictions-table {
+  margin-top: 10px;
+}
+
+.answers-downloader {
+  display: block;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.quote {
+  box-shadow: 4px 0 0 0 gray inset;
+  padding-left: 10px;
+  font-style: italic;
+  line-height: 120%;
+  /* margin-left: 4px; */
+}
+
+.hidden {
+  display: none;
+}
+
+table, th, td {
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid black;
+  border-collapse: collapse;
+  line-height: 120%;
+}
+th {
+  border-bottom: 4px solid black;
+}
+
+td, th {
+  /* width: 500px; */
+  padding: 10px;
+}
+
+.true { color: blue; }
+.false { color: red; }
