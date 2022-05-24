@@ -355,21 +355,31 @@ function renderFalse() { return (<span className='false'>FALSE</span>) }
 const questions = {
   art1: "The value in art is entirely subjective.",
   art2: "There are good arguments for the claim that Michaelangelo was a good artist.",
+  
   god1: "There is an omnipotent and omnibenevolent god.",
   god2: "If there is a way to prevent the starvation of an innocent child without incuring morally-worse consequences, then it is morally good for the child's starvation to be prevented in that way.",
+  
   know2: "At least some humans know some objective truths.",
   know3: "Each human can have only subjective experiences.",
   know4: "Objective truths cannot be learned through subjective experience.",
+  
   dualism1: "The mind is a partly physical phenomenon.",
   dualism2: "The body is a purely physical phenomenon.",
   dualism3: "The body can be physically influenced by the mind.",
   dualism4: "If a phenomenon is entirely physical, then it cannot be any part mental, and visa versa.",
+  
   tauto1: "If a claim is true, then its negation cannot also be true.",
+  
   util1: "If the morally-relevant consequences of an action are on net good, then that action is a morally good action.",
   util2: "It is morally good to imprison a person and then continuously for 30 years brutally physically and mentally torture them until they die, if doing so is the only way to save 1,000 innocent children from excruciatingly painful and slow deaths.",
+  
   utilAction1: "If an action has overwhelmingly morally-good consequences, then I should take that action.",
   utilAction2: "It is overwhelmingly morally-good for someone like me to donate $10,000 to effectively prevent innocent children from dying.",
-  utilAction3: "I should donate $10,000 to charities that effectively prevent thousands of innocent children in Africa from suffering and dying from diseases like Malaria."
+  utilAction3: "I should donate $10,000 to charities that effectively prevent thousands of innocent children in Africa from suffering and dying from diseases like Malaria.",
+
+  godKnow1: "A person takes an action freely if it was possible for them to take a different action.",
+  godKnow2: "God currently knows every future state of the universe.",
+  godKnow3: "Humans sometimes have the ability make free choices."
 }
 
 let keys_questions = [];
