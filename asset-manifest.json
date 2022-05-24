@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/philosophical-consistency-test/static/css/main.0e1640a7.css",
-    "main.js": "/philosophical-consistency-test/static/js/main.83ef90e7.js",
+    "main.js": "/philosophical-consistency-test/static/js/main.0f92df9e.js",
     "static/js/787.8f96d095.chunk.js": "/philosophical-consistency-test/static/js/787.8f96d095.chunk.js",
     "index.html": "/philosophical-consistency-test/index.html",
     "main.0e1640a7.css.map": "/philosophical-consistency-test/static/css/main.0e1640a7.css.map",
-    "main.83ef90e7.js.map": "/philosophical-consistency-test/static/js/main.83ef90e7.js.map",
+    "main.0f92df9e.js.map": "/philosophical-consistency-test/static/js/main.0f92df9e.js.map",
     "787.8f96d095.chunk.js.map": "/philosophical-consistency-test/static/js/787.8f96d095.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0e1640a7.css",
-    "static/js/main.83ef90e7.js"
+    "static/js/main.0f92df9e.js"
   ]
 }
