@@ -1,24 +1,26 @@
 import { Component } from 'react';
 import './App.css';
 
+const state_init = () => {
+  let ks = [...keys_questions];
+  shuffle(ks);
+  let k = ks.pop();
+  return {
+    n_questions: keys_questions.length,
+    key_question: k,
+    keys_questions: ks,
+    answers: {},
+    answers_count: 0,
+    hide_instructions: false,
+    hide_answers_table: false,
+    hide_contradictions_table: false
+  }
+}
 export default class App extends Component {
   constructor() {
     super();
-
-    let ks = [...keys_questions];
-    shuffle(ks);
-    let k = ks.pop();
-
-    this.state = {
-      n_questions: keys_questions.length,
-      key_question: k,
-      keys_questions: ks,
-      answers: {},
-      answers_count: 0,
-      hide_instructions: false,
-      hide_answers_table: false,
-      hide_contradictions_table: false
-    };
+    
+    this.state = state_init();
   }
 
   isFinished() {
@@ -48,8 +50,8 @@ export default class App extends Component {
   renderQuery() {
     return (
       <div>
-        {this.renderInstructions()}
         {this.renderQuestion()}
+        {this.renderInstructions()}
       </div>
     )
 
@@ -157,8 +159,8 @@ export default class App extends Component {
           <b>Claim.</b> {questions[this.state.key_question]}
         </div>
         <div className='question-answers'>
-          <div className='question-answer' onClick={event => this.submitAnswer(true)}>{renderTrue()}</div>
-          <div className='question-answer' onClick={event => this.submitAnswer(false)}>{renderFalse()}</div>
+          <div className='question-answer question-answer-true' onClick={event => this.submitAnswer(true)}>{renderTrue()}</div>
+          <div className='question-answer question-answer-false' onClick={event => this.submitAnswer(false)}>{renderFalse()}</div>
         </div>
       </div>
     );
@@ -168,6 +170,7 @@ export default class App extends Component {
     return (
       <div>
         {this.renderAnswersDownloader()}
+        {this.renderRestart()}
         {this.renderContradictions()}
         {this.renderAnswers()}
       </div>
@@ -187,6 +190,16 @@ export default class App extends Component {
         </a>
       </div>
     );
+  }
+
+  renderRestart() {
+    return (
+      <div>
+        <button className='restart' onClick={event => this.setState(state_init())}>
+          Restart test
+        </button>
+      </div>
+    )
   }
 
   renderAnswersUploader() {
@@ -355,31 +368,34 @@ function renderFalse() { return (<span className='false'>FALSE</span>) }
 const questions = {
   art1: "The value in art is entirely subjective.",
   art2: "There are good arguments for the claim that Michaelangelo was a good artist.",
-  
+
   god1: "There is an omnipotent and omnibenevolent god.",
   god2: "If there is a way to prevent the starvation of an innocent child without incuring morally-worse consequences, then it is morally good for the child's starvation to be prevented in that way.",
-  
+
   know2: "At least some humans know some objective truths.",
   know3: "Each human can have only subjective experiences.",
   know4: "Objective truths cannot be learned through subjective experience.",
-  
+
   dualism1: "The mind is a partly physical phenomenon.",
   dualism2: "The body is a purely physical phenomenon.",
   dualism3: "The body can be physically influenced by the mind.",
   dualism4: "If a phenomenon is entirely physical, then it cannot be any part mental, and visa versa.",
-  
+
   tauto1: "If a claim is true, then its negation cannot also be true.",
-  
+
   util1: "If the morally-relevant consequences of an action are on net good, then that action is a morally good action.",
   util2: "It is morally good to imprison a person and then continuously for 30 years brutally physically and mentally torture them until they die, if doing so is the only way to save 1,000 innocent children from excruciatingly painful and slow deaths.",
-  
+
   utilAction1: "If an action has overwhelmingly morally-good consequences, then I should take that action.",
   utilAction2: "It is overwhelmingly morally-good for someone like me to donate $10,000 to effectively prevent innocent children from dying.",
   utilAction3: "I should donate $10,000 to charities that effectively prevent thousands of innocent children in Africa from suffering and dying from diseases like Malaria.",
 
   godKnow1: "A person takes an action freely if it was possible for them to take a different action.",
   godKnow2: "God currently knows every future state of the universe.",
-  godKnow3: "Humans sometimes have the ability make free choices."
+  godKnow3: "Humans sometimes have the ability make free choices.",
+
+  // agnosticism1: "If a person has no logical or empirical evidence for a claim, then it is unreasonable for them to believe that claim.",
+  // agnosticism2: ""
 }
 
 let keys_questions = [];
@@ -395,7 +411,7 @@ let contradictions = [
     description: "If there is an omnipotent god, then included in omnipotence is the ability to prevent the suffering of the innocent child in question. However, since apparently there are in fact innocent children that suffer in this way, the omnipotent god fails to satisfy omnibenevolence by allowing morally-unoptimal results to come about."
   },
   {
-    answers: [{key: "know2", value: true}, {key: "know3", value: true}, {key: "know4", value: true}],
+    answers: [{ key: "know2", value: true }, { key: "know3", value: true }, { key: "know4", value: true }],
     description: "If humans can have only subjective experiences, but objective knowledge cannot be gained from subjective experience, then humans can never learn any objective truths. Yet, you agreed that they can. You could resolve this by claiming that some humans \"start out\" with some objective truths and so never have to learn them, but you can't know and so you shouldn't believe it."
   },
   {
